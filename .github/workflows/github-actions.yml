@@ -1,8 +1,23 @@
 name: github-actions
 on: workflow_dispatch
 jobs:
-  build:
+  build-on-linux:
     runs-on: ubuntu-latest
     steps:
-      -name: Pull from github
-      
+      - name: Pull from github
+        run: |
+          git clone https://github.com/LiweiChen1/techscrum.git
+      - name: Build App
+        run: |
+          yarn install
+          yarn run build
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: test
+        run: echo test
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploy
+        run: echo deploy
