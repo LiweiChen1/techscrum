@@ -6,7 +6,7 @@ jobs:
     steps:
       - name: Pull from github
         run: |
-          git clone https://github.com/LiweiChen1/techscrum.git
+          git clone https://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@github.com/LiweiChen1/techscrum
       - name: Build App
         run: |
           yarn install
