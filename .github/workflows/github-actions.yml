@@ -11,6 +11,7 @@ jobs:
         run: |
           ls
           pwd
+          cd techscrum
           yarn install
           yarn run build
   test:
