@@ -9,6 +9,8 @@ jobs:
           git clone https://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@github.com/LiweiChen1/techscrum
       - name: Build App
         run: |
+          ls
+          pwd
           yarn install
           yarn run build
   test:
