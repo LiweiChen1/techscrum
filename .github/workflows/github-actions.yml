@@ -35,6 +35,7 @@ jobs:
     steps:
      - name: deploy to s3
        run: |
+         cd techscrum
          pwd
          ls
          aws s3 sync build/ s3://yuri-bucket/v1.0.0 --debug
