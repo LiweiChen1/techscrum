@@ -33,4 +33,4 @@ jobs:
     steps:
       - name: deploy to s3
         run: |
-          aws ec2 describe instance
+          aws s3 ls
