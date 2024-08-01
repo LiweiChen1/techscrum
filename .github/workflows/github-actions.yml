@@ -33,7 +33,4 @@ jobs:
     steps:
       - name: deploy to s3
         run: |
-          # aws s3 cp ./build/* s3://yuri-bucket/v1.0.0/
           aws s3 ls
-          # ls 
-          # aws s3 cp .README.md s3://yuri-bucket/v1.0.0/ --debug
