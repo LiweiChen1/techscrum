@@ -20,6 +20,7 @@ jobs:
       - name: show current directory
         run: |
           pwd
+          cd techscrum
           ls
   test:
     runs-on: ubuntu-latest
