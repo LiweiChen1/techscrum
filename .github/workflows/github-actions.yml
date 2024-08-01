@@ -14,13 +14,20 @@ jobs:
           cd techscrum
           yarn install
           yarn run build
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ variables.AWS_REGION_AU }}
   test:
     runs-on: ubuntu-latest
     steps:
       - name: test
         run: echo test
-  deploy:
+  deploy-to-s3:
     runs-on: ubuntu-latest
     steps:
-      - name: deploy
-        run: echo deploy
+      - name: deploy to s3
+        run: |
+          aws s3 cp ./build/* s3://yuri-bucket/v1.0.0/
