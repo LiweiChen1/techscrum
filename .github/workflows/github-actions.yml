@@ -12,13 +12,14 @@ jobs:
           ls
           pwd
           cd techscrum
-          yarn install
-          yarn run build
+        #  yarn install
+        #  yarn run build
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v3
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION_AU }}
       - name: show current directory
         run: |
           pwd
@@ -29,6 +30,8 @@ jobs:
         run: echo test
   deploy-to-s3:
     runs-on: ubuntu-latest
+    if: ${{ success() }}
+    needs: [build-on-linux]
     steps:
       - name: deploy to s3
         run: |
