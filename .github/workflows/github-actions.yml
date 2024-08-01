@@ -20,7 +20,7 @@ jobs:
       - name: show current directory
         run: |
           pwd
-          ls build/
+          ls
   test:
     runs-on: ubuntu-latest
     steps:
