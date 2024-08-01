@@ -31,9 +31,9 @@ jobs:
     if: ${{ success() }}
     needs: [build-on-linux]
     steps:
-      - name: deploy to s3
-        run: |
-          aws s3 ls   
+      - name: List S3 buckets (Debug)
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ vars.AWS_REGION_AU }}
+        run: aws s3 ls --debug
