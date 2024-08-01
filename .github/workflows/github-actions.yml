@@ -12,12 +12,12 @@ jobs:
       #     cd techscrum
       #     yarn install
       #     yarn run build
-      # - name: Configure AWS credentials
-      #   uses: aws-actions/configure-aws-credentials@v3
-      #   with:
-      #     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      #     aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      #     aws-region: ${{ vars.AWS_REGION_AU }}
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          aws-access-key-id: ${{ secrets.S3_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ S3_ACCESS_KEY }}
+          aws-region: ${{ vars.AWS_REGION_AU }}
       # - name: show current directory
       #   run: |
       #     pwd
