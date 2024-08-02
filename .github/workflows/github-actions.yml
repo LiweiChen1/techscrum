@@ -20,7 +20,7 @@ jobs:
       - name: show current directory
         run: |
           cd techscrum
-          aws s3 sync build/ s3://yuri-bucket/v1.0.0
+          aws s3 sync build/ s3://yuri-bucket/
   test:
     runs-on: ubuntu-latest
     steps:
