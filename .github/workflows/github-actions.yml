@@ -23,19 +23,10 @@ jobs:
           cd techscrum
           ls
           pwd
+          aws s3 sync build/ s3://yuri-bucket/v1.0.0 --debug
   test:
     runs-on: ubuntu-latest
     steps:
       - name: test
         run: echo test
-  deploy-to-s3:
-    runs-on: ubuntu-latest
-    if: ${{ success() }}
-    needs: [build-on-linux]
-    steps:
-     - name: deploy to s3
-       run: |
-         pwd
-         cd ..
-         ls
-         aws s3 sync build/ s3://yuri-bucket/v1.0.0 --debug
+
