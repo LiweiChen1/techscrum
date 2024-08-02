@@ -19,11 +19,8 @@ jobs:
           aws configure set default.region ap-southeast-2
       - name: show current directory
         run: |
-          pwd
           cd techscrum
-          ls
-          pwd
-          aws s3 sync build/ s3://yuri-bucket/v1.0.0 --debug
+          aws s3 sync build/ s3://yuri-bucket/v1.0.0
   test:
     runs-on: ubuntu-latest
     steps:
